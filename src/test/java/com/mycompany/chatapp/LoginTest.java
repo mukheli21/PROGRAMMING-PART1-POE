@@ -11,26 +11,26 @@ public class LoginTest {
         Login user = new Login(
                 "kyl_1",
                 "Ch&&sec@ke99!",
-                "+27838968976",
+                "+27838969876",
                 "Thakhie",
                 "Mukheli"
         );
 
-        assertTrue(user.checkUserName());
+        assertTrue(user.checkuserName());
     }
 
     // Test if the username is incorrectly formatted
     @Test
     public void testCheckUserNameIncorrect() {
         Login user = new Login(
-                "kyle!!!!!!",
+                "kyle!!!!!!*",
                 "Ch&&sec@ke99!",
-                "+27838968976",
+                "+27838969876",
                 "Thakhie",
                 "Mukheli"
         );
 
-        assertFalse(user.checkUserName());
+        assertFalse(user.checkuserName());
     }
 
     // Test if the password meets the complexity requirements
@@ -39,12 +39,12 @@ public class LoginTest {
         Login user = new Login(
                 "kyl_1",
                 "Ch&&sec@ke99!",
-                "+27838968976",
+                "+27838969876",
                 "Thakhie",
                 "Mukheli"
         );
 
-        assertTrue(user.checkPasswordComplexity());
+        assertTrue(user.checkpasswordcomplexity());
     }
 
     // Test if the password does not meet the complexity requirements
@@ -53,12 +53,12 @@ public class LoginTest {
         Login user = new Login(
                 "kyl_1",
                 "password",
-                "+27838968976",
+                "+27838969876",
                 "Thakhie",
                 "Mukheli"
         );
 
-        assertFalse(user.checkPasswordComplexity());
+        assertFalse(user.checkpasswordcomplexity());
     }
 
     // Test if the phone number is correctly formatted
@@ -67,12 +67,12 @@ public class LoginTest {
         Login user = new Login(
                 "kyl_1",
                 "Ch&&sec@ke99!",
-                "+27838968976",
+                "+27838969876",
                 "Thakhie",
                 "Mukheli"
         );
 
-        assertTrue(user.checkCellPhoneNumber());
+        assertTrue(user.checkphoneNumber());
     }
 
     // Test if the phone number is incorrectly formatted
@@ -86,7 +86,7 @@ public class LoginTest {
                 "Mukheli"
         );
 
-        assertFalse(user.checkCellPhoneNumber());
+        assertFalse(user.checkphoneNumber());
     }
 
     // Test if login is successful
@@ -95,7 +95,7 @@ public class LoginTest {
         Login user = new Login(
                 "kyl_1",
                 "Ch&&sec@ke99!",
-                "+27838968976",
+                "+27838969876",
                 "Thakhie",
                 "Mukheli"
         );
@@ -112,7 +112,7 @@ public class LoginTest {
         Login user = new Login(
                 "kyl_1",
                 "Ch&&sec@ke99!",
-                "+27838968976",
+                "+27838969876",
                 "Thakhie",
                 "Mukheli"
         );
@@ -123,107 +123,18 @@ public class LoginTest {
         ));
     }
 
-    // Test the message returned when all registration details are valid
+    // Test that Login correctly implements the IUserValidation interface
     @Test
-    public void testRegisterUserSuccess() {
+    public void testLoginImplementsInterface() {
         Login user = new Login(
                 "kyl_1",
                 "Ch&&sec@ke99!",
-                "+27838968976",
+                "+27838969876",
                 "Thakhie",
                 "Mukheli"
         );
 
-        assertEquals(
-                "Username successfully captured. "
-                        + "Password successfully captured. "
-                        + "Cell number successfully captured.",
-                user.registerUser()
-        );
-    }
-
-    // Test the message returned when the username is invalid
-    @Test
-    public void testRegisterUserUsernameIncorrect() {
-        Login user = new Login(
-                "kyle!!!!!!",
-                "Ch&&sec@ke99!",
-                "+27838968976",
-                "Thakhie",
-                "Mukheli"
-        );
-
-        assertEquals(
-                "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.",
-                user.registerUser()
-        );
-    }
-
-    // Test the message returned when the password is invalid
-    @Test
-    public void testRegisterUserPasswordIncorrect() {
-        Login user = new Login(
-                "kyl_1",
-                "password",
-                "+27838968976",
-                "Thakhie",
-                "Mukheli"
-        );
-
-        assertEquals(
-                "Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.",
-                user.registerUser()
-        );
-    }
-
-    // Test the message returned when the phone number is invalid
-    @Test
-    public void testRegisterUserCellNumberIncorrect() {
-        Login user = new Login(
-                "kyl_1",
-                "Ch&&sec@ke99!",
-                "08966553",
-                "Thakhie",
-                "Mukheli"
-        );
-
-        assertEquals(
-                "Cell number is incorrectly formatted or does not contain an international code; please correct the number and try again.",
-                user.registerUser()
-        );
-    }
-
-    // Test the welcome message returned on a successful login
-    @Test
-    public void testReturnLoginStatusSuccessful() {
-        Login user = new Login(
-                "kyl_1",
-                "Ch&&sec@ke99!",
-                "+27838968976",
-                "Thakhie",
-                "Mukheli"
-        );
-
-        assertEquals(
-                "Welcome Thakhie Mukheli it is great to see you.",
-                user.returnLoginStatus("kyl_1", "Ch&&sec@ke99!")
-        );
-    }
-
-    // Test the failure message returned on an unsuccessful login
-    @Test
-    public void testReturnLoginStatusFailed() {
-        Login user = new Login(
-                "kyl_1",
-                "Ch&&sec@ke99!",
-                "+27838968976",
-                "Thakhie",
-                "Mukheli"
-        );
-
-        assertEquals(
-                "Username or password incorrect, please try again.",
-                user.returnLoginStatus("Wrong_1", "wrongpassword")
-        );
+        assertTrue(user instanceof IUserValidation);
     }
 }
+

@@ -1,6 +1,6 @@
 package com.mycompany.chatapp;
 
-public class Login {
+public class Login implements IUserValidation {
 
     // Declaring variables
     String username;
@@ -20,14 +20,17 @@ public class Login {
         this.lastName = lastName;
     }
 
-    // Checks if the username has an underscore and is no more than five characters
-    public boolean checkUserName() {
+    // Checks if the username has an underscore
+    // and is no more than five characters
+    @Override
+    public boolean checkuserName() {
 
         return username.contains("_") && username.length() <= 5;
     }
 
     // Checks if the password meets the requirements
-    public boolean checkPasswordComplexity() {
+    @Override
+    public boolean checkpasswordcomplexity() {
 
         if (password.length() < 8) {
             return false;
@@ -58,30 +61,30 @@ public class Login {
         return hasCapital && hasNumber && hasSpecialCharacter;
     }
 
-    // Checks if the phone number uses the South African international code +27,
-    
-    public boolean checkCellPhoneNumber() {
+    // Checks if the phone number uses the South African international code +27
+    @Override
+    public boolean checkphoneNumber() {
 
-        return phoneNumber.matches("^\\+27[0-9]{1,10}$");
+        return phoneNumber.matches("^\\+27[0-9]{9}$");
     }
 
     // Registers the user and returns the required message
     public String registerUser() {
 
-        if (!checkUserName()) {
+        if (!checkuserName()) {
             return "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.";
         }
 
-        if (!checkPasswordComplexity()) {
+        if (!checkpasswordcomplexity()) {
             return "Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.";
         }
 
-        if (!checkCellPhoneNumber()) {
+        if (!checkphoneNumber()) {
             return "Cell number is incorrectly formatted or does not contain an international code; please correct the number and try again.";
         }
 
-        return "Username successfully captured. "
-                + "Password successfully captured. "
+        return "Username successfully captured."
+                + "Password successfully captured."
                 + "Cell number successfully captured.";
     }
 
@@ -99,7 +102,6 @@ public class Login {
 
             return "Welcome " + firstName + " " + lastName
                     + " it is great to see you.";
-
         }
 
         return "Username or password incorrect, please try again.";

@@ -15,7 +15,7 @@ public class ChatApp {
         // Get the user's details
         System.out.print("Enter your first name: ");
         String firstName = scanner.nextLine();
-        
+
         System.out.print("Enter your last name: ");
         String lastName = scanner.nextLine();
 
@@ -42,10 +42,26 @@ public class ChatApp {
         System.out.println("Registration Status:");
         System.out.println(login.registerUser());
 
-        // Check if all registration details are correct
-        if (login.checkUserName()
-                && login.checkPasswordComplexity()
-                && login.checkCellPhoneNumber()) {
+        // Operator precedence
+        if (login.checkuserName()
+                && login.checkpasswordcomplexity()
+                && login.checkphoneNumber()) {
+
+            // Store the registered details in an array
+            String[] userDetails = {
+                "First Name: " + firstName,
+                "Last Name: " + lastName,
+                "Username: " + username,
+                "Cell Number: " + cellPhoneNumber
+            };
+
+            System.out.println();
+            System.out.println("Stored Registration Details:");
+
+            // Loop through the array and print each detail
+            for (int i = 0; i < userDetails.length; i++) {
+                System.out.println(userDetails[i]);
+            }
 
             System.out.println();
             System.out.println("=================================");
@@ -75,7 +91,7 @@ public class ChatApp {
             System.out.println();
             System.out.println(
                     "Please correct your registration details and try again."
-            );   
+            );
         }
 
         scanner.close();
