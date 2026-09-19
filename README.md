@@ -50,8 +50,7 @@ The project includes JUnit tests covering:
 - Interface implementation check
 
 ## Author
+Thakhani Mukheli
 
 Thakhani Mukheli 
-## Module
 
-PROG5121 (ITPP511/512) — Part 1 POE
