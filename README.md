@@ -51,9 +51,9 @@ The project includes JUnit tests covering:
 
 ## Author
 Thakhani Mukheli
+<img width="300" alt="FINAL POE" src="https://github.com/user-attachments/assets/c62a5690-0b9b-4d1f-af16-08190fa54125" /> 
+
+
+
 
 ## PART1 
-<img width="1300" height="1600" alt="FINAL POE" src="https://github.com/user-attachments/assets/c62a5690-0b9b-4d1f-af16-08190fa54125" />
-Thakhani Mukheli 
-
-P
